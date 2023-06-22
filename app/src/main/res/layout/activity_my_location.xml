@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    tools:context=".Fragments.MyLocation">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ProgressBar
+                android:id="@+id/d_progress"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:indeterminate="true" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/district_data_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/d_progress"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/white_background"
+                android:elevation="8dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:id="@+id/district_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="@string/district_name"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/cofirmed_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/district_name"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/district_name">
+
+                    <TextView
+                        android:id="@+id/confirm_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/confirmed"
+                        android:textColor="#C00F0F" />
+
+                    <TextView
+                        android:id="@+id/confirm_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#C00F0F"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/active_layout"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/district_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/cofirmed_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toEndOf="@id/cofirmed_layout"
+                    app:layout_constraintTop_toBottomOf="@id/district_name">
+
+                    <TextView
+                        android:id="@+id/active_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/active"
+                        android:textColor="#052547" />
+
+                    <TextView
+                        android:id="@+id/active_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#0E3B6B"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recovered_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/district_name"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/active_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toEndOf="@id/active_layout"
+                    app:layout_constraintTop_toBottomOf="@id/district_name">
+
+                    <TextView
+                        android:id="@+id/recovered_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/recovered"
+                        android:textColor="#033604" />
+
+                    <TextView
+                        android:id="@+id/recovered_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#0B700E"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/death_layout"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/district_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_toEndOf="@id/recovered_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/recovered_layout"
+                    app:layout_constraintTop_toBottomOf="@id/district_name">
+
+                    <TextView
+                        android:id="@+id/death_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/death"
+                        android:textColor="#101110" />
+
+                    <TextView
+                        android:id="@+id/death_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#2B2C2B"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/state_data_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/district_data_layout"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/white_background"
+                android:elevation="8dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:id="@+id/state_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="@string/state_name"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/cofirmed_state_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/state_name"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/state_name">
+
+                    <TextView
+                        android:id="@id/confirm_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/confirmed"
+                        android:textColor="@android:color/holo_red_dark" />
+
+                    <TextView
+                        android:id="@+id/confirm_state_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/active_state_layout"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/state_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/cofirmed_state_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toEndOf="@id/cofirmed_state_layout"
+                    app:layout_constraintTop_toBottomOf="@id/state_name">
+
+                    <TextView
+                        android:id="@id/active_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/active"
+                        android:textColor="#052547" />
+
+                    <TextView
+                        android:id="@+id/active_state_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#0E3B6B"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recovered_state_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/state_name"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/active_state_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toEndOf="@id/active_state_layout"
+                    app:layout_constraintTop_toBottomOf="@id/state_name">
+
+                    <TextView
+                        android:id="@id/recovered_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/recovered"
+                        android:textColor="#033604" />
+
+                    <TextView
+                        android:id="@+id/recovered_state_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#0B700E"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/death_state_layout"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/state_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_toEndOf="@id/recovered_state_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/recovered_state_layout"
+                    app:layout_constraintTop_toBottomOf="@id/state_name">
+
+                    <TextView
+                        android:id="@id/death_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/death"
+                        android:textColor="#101110" />
+
+                    <TextView
+                        android:id="@+id/death_state_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#2B2C2B"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/new_cases_state_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/cofirmed_state_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/layout_background"
+                    android:gravity="start|center"
+                    app:layout_constraintTop_toBottomOf="@id/recovered_state_layout">
+
+                    <TextView
+                        android:id="@+id/new_state_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="35dp"
+                        android:text="@string/no_new_cases_in_your_state"
+                        android:textColor="#310B68"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/country_data_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/state_data_layout"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/white_background"
+                android:elevation="8dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:id="@+id/country_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="@string/india"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/cofirmed_country_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country_name"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/country_name">
+
+                    <TextView
+                        android:id="@id/confirm_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/confirmed"
+                        android:textColor="@android:color/holo_red_dark" />
+
+                    <TextView
+                        android:id="@+id/confirm_country_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/active_country_layout"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/cofirmed_country_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toEndOf="@id/cofirmed_country_layout"
+                    app:layout_constraintTop_toBottomOf="@id/country_name">
+
+                    <TextView
+                        android:id="@id/active_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/active"
+                        android:textColor="#052547" />
+
+                    <TextView
+                        android:id="@+id/active_country_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#0E3B6B"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recovered_country_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country_name"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/active_country_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toEndOf="@id/active_country_layout"
+                    app:layout_constraintTop_toBottomOf="@id/country_name">
+
+                    <TextView
+                        android:id="@id/recovered_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/recovered"
+                        android:textColor="#033604" />
+
+                    <TextView
+                        android:id="@+id/recovered_country_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#0B700E"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/death_country_layout"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_toEndOf="@id/recovered_country_layout"
+                    android:gravity="top|center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/recovered_country_layout"
+                    app:layout_constraintTop_toBottomOf="@id/country_name">
+
+                    <TextView
+                        android:id="@id/death_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/actor"
+                        android:text="@string/death"
+                        android:textColor="#101110" />
+
+                    <TextView
+                        android:id="@+id/death_country_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/dash"
+                        android:textColor="#2B2C2B"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/new_cases_country_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/cofirmed_country_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/layout_background"
+                    android:gravity="start|center"
+                    app:layout_constraintTop_toBottomOf="@id/recovered_country_layout">
+
+                    <TextView
+                        android:id="@+id/new_country_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="35dp"
+                        android:text="@string/no_new_cases_in_country"
+                        android:textColor="#310B68"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/last_updated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/country_data_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/null_"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

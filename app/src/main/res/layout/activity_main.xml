@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/home_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/bottom_nav_view"
+                android:layout_below="@id/toolbar"
+                android:background="#DFE8EB" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#222222"
+                app:titleTextColor="#fff"
+                app:navigationIcon="@drawable/navigationicon"
+                app:title="@string/app_name"
+                app:titleMarginStart="15dp" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav_view"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:background="#222222"
+                android:minWidth="15dp"
+                app:itemIconSize="35dp"
+                app:itemIconTint="@drawable/nav_bottom_selector"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/bottom_nav_menu" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/other_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#DFE8EB"
+            android:visibility="invisible">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_o"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#222222"
+                app:titleTextColor="#fff"
+                app:navigationIcon="@drawable/navigationicon"
+                app:title="@string/app_name"
+                app:titleMarginStart="15dp" />
+
+            <FrameLayout
+                android:id="@+id/other_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/toolbar_o" />
+        </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#121212"
+            app:headerLayout="@layout/nav_menu_header"
+            app:itemBackground="@android:color/transparent"
+            app:itemIconTint="@drawable/nav_bottom_selector"
+            app:itemTextColor="@drawable/nav_bottom_selector"
+            app:menu="@menu/nav_menu" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+</RelativeLayout>

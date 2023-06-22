@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#222222</color>
+    <color name="colorPrimaryDark">#222222</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="selected">#6391C2</color>
+
+    <color name="red_layout">#F3E3E3</color>
+    <color name="blue_layout">#C6DEF8</color>
+    <color name="green_layoyt">#CFF3D0</color>
+    <color name="black_layoyt">#E9E7E7</color>
+    <color name="white_layout">#FFFFFF</color>
+
+    <color name="confirmed">#E24B4B</color>
+    <color name="active">#60A0E4</color>
+    <color name="recovered">#61E964</color>
+    <color name="death">#4A524A</color>
+
+    <color name="loading">#0B3866</color>
+    <color name="pre_dark">#272424</color>
+</resources>

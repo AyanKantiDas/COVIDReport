@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">COVIDReport</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="active">Active</string>
+    <string name="recovered">Recovered</string>
+    <string name="death">Death</string>
+    <string name="central_helpline_number">central helpline number</string>
+    <string name="_91_11_23978046">+91–11-23978046</string>
+    <string name="source">Source</string>
+    <string name="ministry_of_health_and_family_welfare">ministry of health and family welfare</string>
+    <string name="total_cases">TOTAL CASES</string>
+    <string name="total_death">TOTAL DEATH</string>
+    <string name="country">Country</string>
+    <string name="showing_top_5_most_affected_countries">Showing top 5 most affected countries</string>
+    <string name="district">District</string>
+    <string name="state">State</string>
+    <string name="india">India</string>
+    <string name="district_name">district name</string>
+    <string name="dash">-</string>
+    <string name="state_name">state name</string>
+    <string name="no_new_cases_in_your_state">No new cases in your state</string>
+    <string name="no_new_cases_in_country">No new cases in country</string>
+    <string name="null_">null</string>
+    <string name="copyright_rishi">Copyright ©|Rishi</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="fever">Fever</string>
+    <string name="tiredness">Tiredness</string>
+    <string name="dry_cough">Dry cough</string>
+    <string name="aches_and_pains">Aches and pains</string>
+    <string name="runny_nose">Runny nose</string>
+    <string name="sore_throat">Sore throat</string>
+    <string name="nasal_congestion">Nasal congestion</string>
+    <string name="prevention">Prevention</string>
+    <string name="source_who">Source WHO</string>
+    <string name="loading">Loading…</string>
+</resources>
